@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h3>{{ total }} total results for query <b>{{query}}</b></h3>
+    <ol>
+        {% for result in results %}
+        <li>
+            <a href="/text/{{ result['topic']}}/{{result['file']}}">{{ result["title"] }}</a>
+            ({{ result["topic"] }})
+            [score: {{ result["score"] }}]
+            <p>
+                {{ result.highlights("content") | safe }}
+            </p>
+        </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <form action="/search" method="get">
+        <input type="text" name="query" />
+        <button type="submit">Search</button>
+    </form>
+
+<h1> Topics in BBC corpus </h1>
+    <ul>
+            {% for topic in topic_name %}
+        <li>
+            <a href="/topic/{{topic}}">{{topic}}</a>{{":\n"}}{{",\n".join(top10[topic])}}
+        </li>
+            {% endfor %}
+        
+    </ul>
+</body>
+</html>
